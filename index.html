@@ -769,7 +769,7 @@ img {
 <!-- ══ NAV ══ -->
 <nav id="navbar">
   <div class="nav-logo">
-    <a href="#home"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions"></a>
+    <a href="#home"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions" width="1200" height="220" loading="eager" decoding="async" fetchpriority="high"></a>
   </div>
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
@@ -1068,7 +1068,7 @@ img {
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-logo"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions"></div>
+  <div class="footer-logo"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions" width="1200" height="220" loading="lazy" decoding="async" fetchpriority="low"></div>
   <div class="eco-badge"><svg class="ui-icon" aria-hidden="true"><use href="#icon-recycle"></use></svg>Eco-Friendly · Sustainable Production</div>
   <p class="footer-tagline">Malik Brothers — Plastic Recycling Solutions<br>Premium PP Plastic Dana · Nationwide Pakistan</p>
   <a href="https://wa.me/923095561780" class="footer-contact" target="_blank" rel="noopener">
@@ -1086,26 +1086,11 @@ img {
 
 <script>
 // ── IMAGE LOADING OPTIMIZATION
-const imageManifest = [
-  'images_plastic/hero-desktop.png',
-  'images_plastic/hero-mobile.png',
-  'images_plastic/banner image.png',
-  'images_plastic/red dana product.png',
-  'images_plastic/blue dana product.png'
-];
-imageManifest.forEach((href, idx) => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = href;
-  if (idx > 0) link.fetchPriority = 'low';
-  document.head.appendChild(link);
-});
-document.querySelectorAll('img').forEach((img, idx) => {
-  const isLogo = img.closest('.nav-logo') || img.closest('.footer-logo');
-  img.decoding = 'async';
-  img.loading = isLogo ? 'eager' : 'lazy';
-  img.fetchPriority = idx < 2 ? 'high' : 'low';
+document.querySelectorAll('img').forEach((img) => {
+  if (!img.hasAttribute('decoding')) img.decoding = 'async';
+  if (!img.hasAttribute('loading')) {
+    img.loading = img.closest('.nav-logo') ? 'eager' : 'lazy';
+  }
 });
 
 // ── NAV SCROLL
