@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Malik Brothers — Premium Plastic Dana</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images_plastic/optimized/hero-desktop-1024.jpg" media="(min-width: 900px)" fetchpriority="high">
+<link rel="preload" as="image" href="images_plastic/optimized/hero-mobile-682.jpg" media="(max-width: 899px)" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & VARIABLES ── */
@@ -152,20 +155,18 @@ nav.scrolled { height: 58px; background: rgba(9,11,14,.98); }
 }
 .hero-bg {
   position: absolute; inset: 0;
-  background: url('images_plastic/banner image.png') center center / cover no-repeat;
-  background-position: center right;
+  background: url('images_plastic/optimized/hero-mobile-682.jpg') center 35% / cover no-repeat;
   transform: scale(1.06);
   animation: heroZoom 14s ease-out forwards;
 }
 @media (min-width: 900px) {
   .hero-bg {
-    background-image: url('images_plastic/hero-desktop.png');
+    background-image: url('images_plastic/optimized/hero-desktop-1024.jpg');
     background-position: 72% center;
   }
 }
 @media (max-width: 899px) {
   .hero-bg {
-    background-image: url('images_plastic/hero-mobile.png');
     background-position: center 35%;
   }
 }
@@ -849,7 +850,7 @@ img {
 
     <div class="product-card reveal d1">
       <div class="color-bar" style="background:#e63946;"></div>
-      <img class="thumb" src="images_plastic/red dana product.png" alt="Red PP Plastic Dana 1000 Number" loading="lazy">
+      <img class="thumb" src="images_plastic/optimized/red-dana-640.jpg" alt="Red PP Plastic Dana 1000 Number" width="640" height="657" loading="lazy" decoding="async" fetchpriority="low">
       <div class="product-info">
         <div><div class="product-name">Red Dana</div><div class="product-num">1000 Number · PP</div></div>
         <div class="product-dot" style="background:#e63946;"></div>
@@ -859,7 +860,7 @@ img {
 
     <div class="product-card reveal d2">
       <div class="color-bar" style="background:#1d6ae5;"></div>
-      <img class="thumb" src="images_plastic/blue dana product.png" alt="Blue PP Plastic Dana 1000 Number" loading="lazy">
+      <img class="thumb" src="images_plastic/optimized/blue-dana-640.jpg" alt="Blue PP Plastic Dana 1000 Number" width="640" height="661" loading="lazy" decoding="async" fetchpriority="low">
       <div class="product-info">
         <div><div class="product-name">Blue Dana</div><div class="product-num">1000 Number · PP</div></div>
         <div class="product-dot" style="background:#1d6ae5;"></div>
@@ -869,7 +870,7 @@ img {
 
     <div class="product-card reveal d3">
       <div class="color-bar" style="background:#2dc653;"></div>
-      <img class="thumb" src="images_plastic/green dana product.png" alt="Green PP Plastic Dana 1000 Number" loading="lazy">
+      <img class="thumb" src="images_plastic/optimized/green-dana-640.jpg" alt="Green PP Plastic Dana 1000 Number" width="475" height="491" loading="lazy" decoding="async" fetchpriority="low">
       <div class="product-info">
         <div><div class="product-name">Green Dana</div><div class="product-num">1000 Number · PP</div></div>
         <div class="product-dot" style="background:#2dc653;"></div>
@@ -879,7 +880,7 @@ img {
 
     <div class="product-card reveal d4">
       <div class="color-bar" style="background:#c8d6e5;"></div>
-      <img class="thumb" src="images_plastic/white dana product.png" alt="White PP Plastic Dana 1000 Number" loading="lazy">
+      <img class="thumb" src="images_plastic/optimized/white-dana-640.jpg" alt="White PP Plastic Dana 1000 Number" width="520" height="535" loading="lazy" decoding="async" fetchpriority="low">
       <div class="product-info">
         <div><div class="product-name">White Dana</div><div class="product-num">1000 Number · PP</div></div>
         <div class="product-dot" style="background:#c8d6e5; border-color:#555;"></div>
@@ -889,7 +890,7 @@ img {
 
     <div class="product-card reveal d1">
       <div class="color-bar" style="background:#7c3aed;"></div>
-      <img class="thumb" src="images_plastic/purple dana product.png" alt="Purple PP Plastic Dana 1000 Number" loading="lazy">
+      <img class="thumb" src="images_plastic/optimized/purple-dana-640.jpg" alt="Purple PP Plastic Dana 1000 Number" width="474" height="530" loading="lazy" decoding="async" fetchpriority="low">
       <div class="product-info">
         <div><div class="product-name">Purple Dana</div><div class="product-num">1000 Number · PP</div></div>
         <div class="product-dot" style="background:#7c3aed;"></div>
@@ -948,7 +949,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">01</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 1.png" alt="Step 1 Raw Plastic Cutting" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-1-768.jpg" alt="Step 1 Raw Plastic Cutting" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 1</div>
           <div class="step-title">Raw Plastic Cutting</div>
@@ -961,7 +962,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">02</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 2.png" alt="Step 2 Machine Crushing" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-2-768.jpg" alt="Step 2 Machine Crushing" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 2</div>
           <div class="step-title">Machine Crushing</div>
@@ -974,7 +975,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">03</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 3.png" alt="Step 3 Washing" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-3-768.jpg" alt="Step 3 Washing" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 3</div>
           <div class="step-title">Washing</div>
@@ -987,7 +988,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">04</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 4.png" alt="Step 4 Drying" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-4-768.jpg" alt="Step 4 Drying" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 4</div>
           <div class="step-title">Drying</div>
@@ -1000,7 +1001,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">05</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 5.png" alt="Step 5 Rinsing" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-5-768.jpg" alt="Step 5 Rinsing" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 5</div>
           <div class="step-title">Rinsing</div>
@@ -1013,7 +1014,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">06</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 6.png" alt="Step 6 Final Granulation" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-6-768.jpg" alt="Step 6 Final Granulation" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 6</div>
           <div class="step-title">Final Granulation</div>
@@ -1026,7 +1027,7 @@ img {
     <div class="process-step reveal">
       <div class="step-number-col"><div class="step-num-text">07</div></div>
       <div class="step-content">
-        <div class="step-img-wrap"><img src="images_plastic/step 7.png" alt="Step 7 Packed and Transported" loading="lazy"></div>
+        <div class="step-img-wrap"><img src="images_plastic/optimized/step-7-768.jpg" alt="Step 7 Packed and Transported" width="768" height="576" loading="lazy" decoding="async" fetchpriority="low"></div>
         <div class="step-text">
           <div class="step-label">Step 7</div>
           <div class="step-title">Packed & Transported</div>
