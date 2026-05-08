@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malik Brothers — Premium Plastic Dana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & VARIABLES ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #090b0e;
+  --dark: #0f1318;
+  --card: #141a22;
+  --green: #39e75f;
+  --green2: #2cc94c;
+  --green-dim: rgba(57,231,95,0.10);
+  --white: #f0f4f8;
+  --muted: #8a9ab0;
+  --border: rgba(57,231,95,0.18);
+  --nav-h: 70px;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 18px);
+  overflow-x: hidden;
+}
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Barlow', sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+
+/* ── TYPOGRAPHY HELPERS ── */
+.section-label {
+  font-size: clamp(.68rem, 2vw, .78rem);
+  font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--green);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  font-weight: 900; text-transform: uppercase;
+  line-height: 1; margin-bottom: 16px;
+}
+.section-desc {
+  color: var(--muted);
+  font-size: clamp(.88rem, 2.2vw, 1rem);
+  line-height: 1.75; max-width: 540px;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(9,11,14,.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: height .3s, background .3s;
+}
+nav.scrolled { height: 58px; background: rgba(9,11,14,.98); }
+.nav-logo img {
+  width: clamp(150px, 17vw, 230px);
+  height: auto;
+  object-fit: contain;
+}
+.nav-links { display: flex; gap: clamp(16px, 3vw, 36px); list-style: none; }
+.nav-links a {
+  color: var(--muted); font-size: clamp(.75rem,.9vw+.5rem,.88rem);
+  font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-cta {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  background: var(--green); color: #000;
+  font-weight: 800; font-size: clamp(.72rem, 1.1vw, .85rem);
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: clamp(8px,1.2vw,12px) clamp(14px,2vw,24px);
+  border-radius: 4px; transition: all .25s; white-space: nowrap;
+}
+.nav-cta svg, .btn-ghost svg, .product-order-btn svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
+.nav-cta:hover { background: var(--green2); transform: translateY(-1px); }
+/* hamburger */
+.hamburger {
+  display: none; flex-direction: column;
+  gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 6px;
+}
+.hamburger span {
+  width: 24px; height: 2px;
+  background: var(--white); border-radius: 2px;
+  transition: .3s; display: block;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* mobile menu */
+.mobile-menu {
+  display: none; position: fixed;
+  top: var(--nav-h); left: 0; right: 0; bottom: 0;
+  background: rgba(9,11,14,.97);
+  backdrop-filter: blur(20px);
+  z-index: 999; flex-direction: column;
+  align-items: center; justify-content: center; gap: 36px;
+  opacity: 0; transition: opacity .3s;
+  pointer-events: none;
+}
+.mobile-menu.open {
+  display: flex; opacity: 1; pointer-events: all;
+}
+.mobile-menu a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.4rem; font-weight: 900;
+  text-transform: uppercase; color: var(--white);
+  letter-spacing: .06em; transition: color .2s;
+}
+.mobile-menu a:hover, .mobile-menu a.wa { color: var(--green); }
+.mobile-menu a.wa {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 90%;
+  text-align: center;
+  line-height: 1.08;
+}
+.mobile-menu a.wa svg { width: .72em; height: .72em; flex-shrink: 0; }
+.mobile-menu a.wa span { display: block; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: clamp(620px, 92svh, 860px);
+  display: flex; align-items: center; overflow: hidden;
+  padding-top: var(--nav-h);
+  padding-bottom: clamp(88px, 12vh, 130px);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('images_plastic/banner image.png') center center / cover no-repeat;
+  background-position: center right;
+  transform: scale(1.06);
+  animation: heroZoom 14s ease-out forwards;
+}
+@media (min-width: 900px) {
+  .hero-bg {
+    background-image: url('images_plastic/hero-desktop.png');
+    background-position: 72% center;
+  }
+}
+@media (max-width: 899px) {
+  .hero-bg {
+    background-image: url('images_plastic/hero-mobile.png');
+    background-position: center 35%;
+  }
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(110deg, rgba(9,11,14,.93) 40%, rgba(9,11,14,.35) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: clamp(28px,5vh,72px) clamp(5%,6%,7%);
+  padding-bottom: clamp(86px, 12vh, 130px);
+  max-width: 700px; width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dim); border: 1px solid var(--border);
+  color: var(--green); font-size: clamp(.65rem, 1.8vw, .76rem);
+  font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  padding: 7px 16px; border-radius: 20px; margin-bottom: clamp(18px,3vh,30px);
+  opacity: 0; animation: fadeUp .6s .2s forwards;
+}
+.hero-badge-dot {
+  width: 7px; height: 7px; background: var(--green);
+  border-radius: 50%; animation: blink 1.5s infinite;
+  flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(3rem, 10vw, 7.5rem);
+  font-weight: 900; line-height: .92;
+  letter-spacing: 0; text-transform: uppercase;
+  opacity: 0; animation: fadeUp .7s .35s forwards;
+}
+.hero h1 .green { color: var(--green); display: block; }
+.hero-sub {
+  font-size: clamp(.88rem, 2.2vw, 1.05rem);
+  color: var(--muted); line-height: 1.7;
+  margin: clamp(14px,2.5vh,24px) 0 clamp(24px,4vh,40px);
+  max-width: 460px;
+  opacity: 0; animation: fadeUp .7s .5s forwards;
+}
+.hero-sub strong { color: var(--white); font-weight: 600; }
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s .65s forwards;
+}
+.btn-wa {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #000;
+  font-weight: 800; font-size: clamp(.8rem, 2vw, .95rem);
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: clamp(12px,2vh,17px) clamp(18px,3vw,32px);
+  border-radius: 5px; transition: all .3s;
+  box-shadow: 0 0 30px rgba(37,211,102,.3);
+  white-space: nowrap;
+}
+.btn-wa:hover { background: #1db855; transform: translateY(-2px); box-shadow: 0 0 50px rgba(37,211,102,.45); }
+.btn-wa svg { width: clamp(16px,2.5vw,20px); height: clamp(16px,2.5vw,20px); fill: #000; flex-shrink: 0; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--border); color: var(--white);
+  font-weight: 600; font-size: clamp(.8rem, 2vw, .92rem);
+  letter-spacing: .06em; padding: clamp(12px,2vh,17px) clamp(14px,2.5vw,26px);
+  border-radius: 5px; transition: all .3s; white-space: nowrap;
+}
+.btn-ghost:hover { border-color: var(--green); color: var(--green); }
+/* hero stats */
+.hero-stats {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  z-index: 2;
+  opacity: 0; animation: fadeUp .7s .85s forwards;
+}
+.stat {
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: clamp(12px,2.5vh,22px) clamp(8px,2vw,20px);
+  text-align: center;
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 900; color: var(--green); line-height: 1;
+}
+.stat-label {
+  font-size: clamp(.6rem, 1.5vw, .73rem);
+  color: var(--muted); text-transform: uppercase;
+  letter-spacing: .08em; margin-top: 4px;
+}
+
+@keyframes fadeUp { from{ opacity:0; transform:translateY(22px); } to{ opacity:1; transform:translateY(0); } }
+
+/* ── SECTION WRAPPER ── */
+.section-wrap { padding: clamp(60px, 10vh, 110px) clamp(5%, 6%, 7%); }
+
+/* ── MARQUEE ── */
+.marquee-wrap { background: var(--green); overflow: hidden; padding: 13px 0; }
+.marquee-track {
+  display: flex; width: max-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-item {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(.85rem, 2vw, 1rem);
+  font-weight: 800; color: #000;
+  text-transform: uppercase; letter-spacing: .14em;
+  padding: 0 clamp(20px,4vw,44px);
+  display: inline-flex; align-items: center; gap: 18px;
+  white-space: nowrap;
+}
+.marquee-item::after { content: '◆'; font-size: .65rem; }
+@keyframes marquee { from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* ── PRODUCTS ── */
+.products-section { background: var(--dark); }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(220px, 28vw, 300px), 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin-top: clamp(36px, 6vh, 64px);
+}
+.product-card {
+  border-radius: 8px; overflow: hidden;
+  background: var(--card); border: 1px solid rgba(255,255,255,.06);
+  transition: all .35s; position: relative;
+}
+.product-card:hover { transform: translateY(-5px); border-color: var(--border); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.color-bar { height: 3px; width: 100%; }
+.product-card .thumb {
+  width: 100%; aspect-ratio: 1 / 1;
+  object-fit: cover; transition: transform .5s;
+}
+.product-card:hover .thumb { transform: scale(1.04); }
+.product-info {
+  padding: clamp(14px,2.5vw,22px);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.product-info > div:first-child { min-width: 0; }
+.product-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 800; text-transform: uppercase; line-height: 1.05;
+}
+.product-num { font-size: clamp(.68rem,1.5vw,.8rem); color: var(--muted); margin-top: 2px; }
+.product-dot { width: 15px; height: 15px; border-radius: 50%; border: 2px solid rgba(255,255,255,.2); flex-shrink: 0; }
+.product-order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 clamp(14px,2.5vw,22px) clamp(14px,2.5vw,22px);
+  background: transparent; border: 1.5px solid var(--border);
+  color: var(--green); font-weight: 700;
+  font-size: clamp(.64rem,.75vw,.76rem);
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: clamp(9px,1.5vh,12px); border-radius: 5px;
+  text-align: center; transition: all .25s;
+  white-space: nowrap; line-height: 1.2;
+}
+.product-order-btn:hover { background: var(--green); color: #000; }
+
+/* ── FEATURES ── */
+.features-section { background: var(--black); }
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.6vw, 18px);
+  margin-top: clamp(36px,6vh,60px);
+}
+.feature-card {
+  background: var(--card);
+  border-radius: 8px;
+  padding: clamp(24px,3vw,36px) clamp(20px,3vw,34px);
+  border: 1px solid rgba(255,255,255,.05); transition: all .3s;
+}
+.feature-card:hover { border-color: var(--border); background: rgba(57,231,95,.05); }
+.ui-icon {
+  width: 1em;
+  height: 1em;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ui-icon.fill { fill: currentColor; stroke: none; }
+.feature-icon {
+  width: clamp(38px, 4vw, 48px);
+  height: clamp(38px, 4vw, 48px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: var(--green);
+  background: rgba(57,231,95,.08);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.feature-icon svg { width: 58%; height: 58%; }
+.feature-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.1rem,2.2vw,1.35rem); font-weight: 800;
+  text-transform: uppercase; margin-bottom: 10px;
+}
+.feature-desc { font-size: clamp(.82rem,1.8vw,.9rem); color: var(--muted); line-height: 1.65; }
+
+/* ── PROCESS ── */
+.process-section { background: var(--black); border-top: 1px solid rgba(255,255,255,.05); }
+.process-steps {
+  margin-top: clamp(40px,7vh,72px);
+  display: flex; flex-direction: column; gap: clamp(10px, 1.4vw, 14px);
+}
+.process-step {
+  display: grid;
+  grid-template-columns: clamp(52px,7vw,82px) 1fr;
+  border-radius: 8px; overflow: hidden;
+  background: var(--card); border: 1px solid rgba(255,255,255,.05);
+  transition: border-color .3s, box-shadow .3s;
+  cursor: pointer;
+}
+.process-step:hover { border-color: var(--border); box-shadow: 0 8px 40px rgba(0,0,0,.3); }
+.step-number-col {
+  background: rgba(57,231,95,.07);
+  display: flex; align-items: center; justify-content: center;
+  border-right: 1px solid var(--border);
+  padding: 16px 0;
+}
+.step-num-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  font-weight: 900; color: var(--green);
+  writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: .12em;
+}
+.step-content { display: flex; min-height: 0; overflow: hidden; }
+.step-img-wrap {
+  flex-shrink: 0;
+  width: clamp(110px, 22vw, 280px);
+  aspect-ratio: 4 / 3;
+  min-height: clamp(150px, 18vw, 220px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #080a0c;
+  overflow: hidden;
+}
+.step-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain; display: block;
+  transition: transform .5s;
+}
+.process-step:hover .step-img-wrap img { transform: none; }
+.step-text {
+  padding: clamp(18px,3vw,34px) clamp(16px,3vw,38px);
+  display: flex; flex-direction: column; justify-content: center;
+  flex: 1; min-width: 0;
+}
+.step-label {
+  font-size: clamp(.62rem,1.4vw,.74rem);
+  color: var(--green); font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; margin-bottom: 8px;
+}
+.step-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 900; text-transform: uppercase; margin-bottom: 10px; line-height: 1;
+}
+.step-desc {
+  font-size: clamp(.8rem,1.8vw,.92rem);
+  color: var(--muted); line-height: 1.65; max-width: 420px;
+}
+.step-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+.step-tag {
+  font-size: clamp(.6rem,1.3vw,.7rem); font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: var(--green); background: var(--green-dim);
+  border: 1px solid var(--border);
+  padding: 4px clamp(8px,1.5vw,14px); border-radius: 20px;
+}
+
+/* ── ORDER SECTION ── */
+.order-section {
+  background: linear-gradient(140deg, var(--dark) 0%, #0a150e 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+.order-form {
+  max-width: 580px; width: 100%;
+  margin: clamp(30px,5vh,52px) auto 0;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.order-form input,
+.order-form select,
+.order-form textarea {
+  background: var(--card); border: 1px solid rgba(255,255,255,.08);
+  color: var(--white); font-family: 'Barlow', sans-serif;
+  font-size: clamp(.88rem, 2vw, .98rem);
+  padding: clamp(12px,2vh,16px) clamp(14px,2.5vw,20px);
+  border-radius: 6px; outline: none;
+  transition: border .25s; width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus { border-color: var(--green); }
+.order-form select option { background: var(--dark); }
+.order-form select {
+  padding-right: 44px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--green) 50%),
+    linear-gradient(135deg, var(--green) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 52%, calc(100% - 12px) 52%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+.order-form textarea { resize: vertical; min-height: 80px; }
+.btn-order-wa {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  background: #25D366; color: #000;
+  font-weight: 800; font-size: clamp(.88rem,2vw,1.02rem);
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: clamp(14px,2.5vh,19px) 20px;
+  border-radius: 6px; border: none; cursor: pointer;
+  transition: all .3s; width: 100%;
+  box-shadow: 0 0 40px rgba(37,211,102,.22);
+}
+.btn-order-wa:hover { background: #1db855; transform: translateY(-2px); box-shadow: 0 0 60px rgba(37,211,102,.4); }
+.btn-order-wa svg { width: clamp(18px,2.5vw,22px); height: clamp(18px,2.5vw,22px); fill: #000; flex-shrink: 0; }
+.order-note { text-align: center; color: var(--muted); font-size: clamp(.75rem,1.8vw,.83rem); margin-top: 6px; }
+.order-note svg {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.14em;
+  margin-right: 5px;
+  color: var(--green);
+}
+.order-note a { color: var(--green); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: clamp(40px,8vh,60px) clamp(5%,6%,7%);
+  text-align: center;
+}
+.footer-logo img {
+  width: clamp(220px, 28vw, 360px);
+  height: auto;
+  margin: 0 auto clamp(14px,3vh,22px);
+}
+.eco-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--green-dim); border: 1px solid var(--border);
+  color: var(--green); font-size: clamp(.65rem,1.5vw,.73rem);
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 20px; margin-bottom: 16px;
+}
+.eco-badge svg { width: 1em; height: 1em; flex-shrink: 0; }
+.footer-tagline {
+  color: var(--muted);
+  font-size: clamp(.82rem,1.8vw,.92rem);
+  line-height: 1.7; margin-bottom: 20px;
+}
+.footer-contact {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--green); font-weight: 700;
+  font-size: clamp(.95rem,2.2vw,1.1rem);
+  margin-bottom: clamp(20px,4vh,30px);
+}
+.footer-contact:hover { text-decoration: underline; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding-top: 20px; color: var(--muted);
+  font-size: clamp(.7rem,1.5vw,.78rem);
+}
+
+/* ── FLOATING WA ── */
+.wa-float {
+  position: fixed; bottom: clamp(18px,3vw,28px); right: clamp(18px,3vw,28px);
+  z-index: 999;
+  width: clamp(52px,7vw,64px); height: clamp(52px,7vw,64px);
+  border-radius: 50%; background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 30px rgba(37,211,102,.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(.92);
+  transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+.wa-float.visible { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.wa-float:hover { transform: translateY(-2px) scale(1.06); box-shadow: 0 4px 50px rgba(37,211,102,.7); }
+.wa-float svg { width: clamp(26px,4vw,33px); height: clamp(26px,4vw,33px); fill: #fff; }
+.wa-float-ring {
+  position: absolute; inset: -3px; border-radius: 50%;
+  border: 2px solid rgba(37,211,102,.4);
+  opacity: 0;
+}
+.wa-float.visible .wa-float-ring {
+  opacity: 1;
+  animation: ring 2s ease-out infinite;
+}
+@keyframes ring { 0%{ transform:scale(1); opacity:1; } 100%{ transform:scale(1.45); opacity:0; } }
+
+/* ── SCROLL REVEAL ── */
+/* Added smooth fade-in for sections */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .85s ease, transform .85s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.d1 { transition-delay: .08s; }
+.d2 { transition-delay: .16s; }
+.d3 { transition-delay: .24s; }
+.d4 { transition-delay: .32s; }
+
+/* ══════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+══════════════════════════════════ */
+
+/* ── Large Desktop (≥1200px) ── */
+@media (min-width: 1200px) {
+  .products-grid { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* ── Desktop (1024–1199px) ── */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Tablet landscape (768–1023px) ── */
+@media (max-width: 1023px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .step-img-wrap { width: clamp(100px, 28vw, 200px); }
+}
+
+/* ── Tablet portrait (600–767px) ── */
+@media (max-width: 767px) {
+  .hero { min-height: clamp(580px, 88svh, 760px); padding-bottom: clamp(110px, 19vh, 170px); }
+  .hero-content { padding-bottom: clamp(100px, 17vh, 150px); }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2) { border-right: none; }
+  .stat:nth-child(3) { border-top: 1px solid var(--border); }
+  .stat:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  .step-content { flex-direction: column; }
+  .step-img-wrap { width: 100%; height: auto; min-height: 0; }
+  .process-step { grid-template-columns: 46px 1fr; }
+}
+
+/* ── Mobile (≤599px) ── */
+@media (max-width: 599px) {
+  :root { --nav-h: 60px; }
+  .section-wrap { padding: clamp(52px, 8vh, 68px) 6%; }
+  .hero h1 { font-size: clamp(2.6rem, 12vw, 3.8rem); }
+  .hero-btns { flex-direction: column; align-items: flex-start; }
+  .btn-wa, .btn-ghost { width: 100%; justify-content: center; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: 1fr; gap: 14px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .process-step { grid-template-columns: 38px 1fr; }
+  .step-img-wrap { height: auto; }
+  .step-text { padding: 16px; }
+  .step-tags { display: none; }
+  .order-form { padding: 0; }
+  .order-form input,
+  .order-form select,
+  .order-form textarea { font-size: 16px; }
+}
+
+/* ── Very small (≤360px) ── */
+@media (max-width: 360px) {
+  .hero h1 { font-size: 2.4rem; }
+  .hero-badge { font-size: .6rem; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .process-step { grid-template-columns: 36px 1fr; }
+  .step-num-text { font-size: 1rem; }
+}
+
+/* ── Touch device optimizations ── */
+@media (hover: none) {
+  .product-card:hover { transform: none; }
+  .feature-card:hover,
+  .process-step:hover,
+  .btn-wa:hover,
+  .btn-ghost:hover,
+  .btn-order-wa:hover,
+  .wa-float:hover { transform: none; }
+}
+
+/* ── Performance + Premium Motion ── */
+img {
+  max-width: 100%;
+  height: auto;
+}
+.hero-bg {
+  animation-duration: 18s;
+  will-change: transform;
+}
+.hero-overlay {
+  background: linear-gradient(116deg, rgba(9,11,14,.9) 35%, rgba(9,11,14,.26) 100%);
+}
+.product-card,
+.feature-card,
+.process-step,
+.order-form {
+  transition: transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s ease, border-color .45s ease, background-color .3s ease;
+}
+.product-card:hover,
+.feature-card:hover,
+.process-step:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 46px rgba(0,0,0,.33), 0 0 0 1px rgba(255,255,255,.07) inset;
+}
+.reveal {
+  transform: translateY(34px) scale(.992);
+  transition: opacity .95s ease, transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { transform: translateY(0) scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+  <symbol id="icon-shield-check" viewBox="0 0 24 24">
+    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.68 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.1 1.1 0 0 1 1.52 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-recycle" viewBox="0 0 24 24">
+    <path d="M7 19H4.8a2 2 0 0 1-1.72-3l1.4-2.42"/>
+    <path d="m7 19-2-2"/>
+    <path d="m7 19 2-2"/>
+    <path d="m14 5 1.1-1.9a2 2 0 0 1 3.44 0L20 5.6"/>
+    <path d="m14 5 2.73.73"/>
+    <path d="m14 5 .73-2.73"/>
+    <path d="m13.8 19 1.4 2.42a2 2 0 0 0 3.44 0L20 19"/>
+    <path d="m20 19-2-2"/>
+    <path d="m20 19 2-2"/>
+    <path d="M7.2 9.2 4.5 14"/>
+    <path d="M16.8 9.2 19.5 14"/>
+    <path d="M9.2 5h5.6"/>
+  </symbol>
+  <symbol id="icon-target" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <circle cx="12" cy="12" r="5"/>
+    <circle cx="12" cy="12" r="1.5"/>
+  </symbol>
+  <symbol id="icon-cog" viewBox="0 0 24 24">
+    <path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5z"/>
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 .6 1.65 1.65 0 0 0-.4 1.08V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.08-1H3.4a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-.6 1.65 1.65 0 0 0 .4-1.08V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 15 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9c.14.43.5.8 1 1h.1a2 2 0 1 1 0 4h-.1a1.65 1.65 0 0 0-1 1z"/>
+  </symbol>
+  <symbol id="icon-truck" viewBox="0 0 24 24">
+    <path d="M10 17H6a2 2 0 0 1-2-2V6h10v11"/>
+    <path d="M14 9h3l3 4v4h-2"/>
+    <path d="M14 17h2"/>
+    <circle cx="7" cy="17" r="2"/>
+    <circle cx="18" cy="17" r="2"/>
+  </symbol>
+  <symbol id="icon-message-circle" viewBox="0 0 24 24">
+    <path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 8.8 8.8 0 0 1-4.1-1l-4.9 1.3 1.3-4.2A8.4 8.4 0 1 1 21 11.5z"/>
+    <path d="M8 10h8"/>
+    <path d="M8 14h5"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6.27 6.27l1.27-1.27a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+    <path d="M5 12h14"/>
+    <path d="m13 6 6 6-6 6"/>
+  </symbol>
+  <symbol id="icon-arrow-down" viewBox="0 0 24 24">
+    <path d="M12 5v14"/>
+    <path d="m18 13-6 6-6-6"/>
+  </symbol>
+</svg>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="#home"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20inquire%20about%20Plastic%20Dana." class="nav-cta" target="_blank" rel="noopener">Order on WhatsApp <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#products" class="mm-link">Products</a>
+  <a href="#why-us" class="mm-link">Why Us</a>
+  <a href="#process" class="mm-link">Process</a>
+  <a href="#order" class="mm-link">Order</a>
+  <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20Plastic%20Dana." class="wa mm-link" target="_blank" rel="noopener">
+    <svg class="ui-icon fill"><use href="#icon-whatsapp"></use></svg>
+    <span>Order on WhatsApp</span>
+  </a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>100% Recycled PP Plastic Dana</div>
+    <h1>Premium<span class="green">Plastic Dana</span></h1>
+    <p class="hero-sub">High quality recycled PP plastic dana — <strong>Crushed. Clean. Consistent.</strong> Available in 5 colors with nationwide supply across Pakistan.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20place%20an%20order%20for%20Plastic%20Dana." class="btn-wa" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order on WhatsApp
+      </a>
+      <a href="#products" class="btn-ghost">View Products <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-down"></use></svg></a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Colors Available</div></div>
+    <div class="stat"><div class="stat-num">1000</div><div class="stat-label">Poli Dana No.</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Recycled PP</div></div>
+    <div class="stat"><div class="stat-num">7</div><div class="stat-label">Step Process</div></div>
+  </div>
+</section>
+
+<!-- ══ MARQUEE ══ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Premium Quality</span>
+    <span class="marquee-item">100% Recycled</span>
+    <span class="marquee-item">Consistent Size</span>
+    <span class="marquee-item">Advanced Processing</span>
+    <span class="marquee-item">Nationwide Supply</span>
+    <span class="marquee-item">Eco Friendly</span>
+    <span class="marquee-item">PP Plastic Dana</span>
+    <span class="marquee-item">1000 Number</span>
+    <span class="marquee-item">Premium Quality</span>
+    <span class="marquee-item">100% Recycled</span>
+    <span class="marquee-item">Consistent Size</span>
+    <span class="marquee-item">Advanced Processing</span>
+    <span class="marquee-item">Nationwide Supply</span>
+    <span class="marquee-item">Eco Friendly</span>
+    <span class="marquee-item">PP Plastic Dana</span>
+    <span class="marquee-item">1000 Number</span>
+  </div>
+</div>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="products-section section-wrap" id="products">
+  <div class="reveal"><div class="section-label">Our Products</div></div>
+  <div class="reveal d1"><h2 class="section-title">PP Plastic Dana<br><span style="color:var(--green)">All Colors</span></h2></div>
+  <div class="reveal d2"><p class="section-desc">High quality recycled PP plastic dana available in multiple vibrant colors. Clean, uniform and consistent for best performance in your production line.</p></div>
+  <div class="products-grid">
+
+    <div class="product-card reveal d1">
+      <div class="color-bar" style="background:#e63946;"></div>
+      <img class="thumb" src="images_plastic/red dana product.png" alt="Red PP Plastic Dana 1000 Number" loading="lazy">
+      <div class="product-info">
+        <div><div class="product-name">Red Dana</div><div class="product-num">1000 Number · PP</div></div>
+        <div class="product-dot" style="background:#e63946;"></div>
+      </div>
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20RED%20DANA%20(1000%20Number%20PP).%20Please%20share%20price%20and%20availability." class="product-order-btn" target="_blank" rel="noopener">Order This Color <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </div>
+
+    <div class="product-card reveal d2">
+      <div class="color-bar" style="background:#1d6ae5;"></div>
+      <img class="thumb" src="images_plastic/blue dana product.png" alt="Blue PP Plastic Dana 1000 Number" loading="lazy">
+      <div class="product-info">
+        <div><div class="product-name">Blue Dana</div><div class="product-num">1000 Number · PP</div></div>
+        <div class="product-dot" style="background:#1d6ae5;"></div>
+      </div>
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20BLUE%20DANA%20(1000%20Number%20PP).%20Please%20share%20price%20and%20availability." class="product-order-btn" target="_blank" rel="noopener">Order This Color <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </div>
+
+    <div class="product-card reveal d3">
+      <div class="color-bar" style="background:#2dc653;"></div>
+      <img class="thumb" src="images_plastic/green dana product.png" alt="Green PP Plastic Dana 1000 Number" loading="lazy">
+      <div class="product-info">
+        <div><div class="product-name">Green Dana</div><div class="product-num">1000 Number · PP</div></div>
+        <div class="product-dot" style="background:#2dc653;"></div>
+      </div>
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20GREEN%20DANA%20(1000%20Number%20PP).%20Please%20share%20price%20and%20availability." class="product-order-btn" target="_blank" rel="noopener">Order This Color <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </div>
+
+    <div class="product-card reveal d4">
+      <div class="color-bar" style="background:#c8d6e5;"></div>
+      <img class="thumb" src="images_plastic/white dana product.png" alt="White PP Plastic Dana 1000 Number" loading="lazy">
+      <div class="product-info">
+        <div><div class="product-name">White Dana</div><div class="product-num">1000 Number · PP</div></div>
+        <div class="product-dot" style="background:#c8d6e5; border-color:#555;"></div>
+      </div>
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20WHITE%20DANA%20(1000%20Number%20PP).%20Please%20share%20price%20and%20availability." class="product-order-btn" target="_blank" rel="noopener">Order This Color <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </div>
+
+    <div class="product-card reveal d1">
+      <div class="color-bar" style="background:#7c3aed;"></div>
+      <img class="thumb" src="images_plastic/purple dana product.png" alt="Purple PP Plastic Dana 1000 Number" loading="lazy">
+      <div class="product-info">
+        <div><div class="product-name">Purple Dana</div><div class="product-num">1000 Number · PP</div></div>
+        <div class="product-dot" style="background:#7c3aed;"></div>
+      </div>
+      <a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20want%20to%20order%20PURPLE%20DANA%20(1000%20Number%20PP).%20Please%20share%20price%20and%20availability." class="product-order-btn" target="_blank" rel="noopener">Order This Color <svg class="ui-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ WHY US ══ -->
+<section class="features-section section-wrap" id="why-us">
+  <div class="reveal"><div class="section-label">Why Choose Us</div></div>
+  <div class="reveal d1"><h2 class="section-title">The Malik Brothers<br><span style="color:var(--green)">Difference</span></h2></div>
+  <div class="features-grid">
+    <div class="feature-card reveal d1">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-shield-check"></use></svg></div>
+      <div class="feature-title">Premium Quality</div>
+      <div class="feature-desc">Every batch passes rigorous quality checks. Consistent grade and performance — batch after batch, order after order.</div>
+    </div>
+    <div class="feature-card reveal d2">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-recycle"></use></svg></div>
+      <div class="feature-title">100% Recycled</div>
+      <div class="feature-desc">Pure recycled PP plastic, responsibly sourced and processed. Eco-friendly production for a sustainable future.</div>
+    </div>
+    <div class="feature-card reveal d3">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-target"></use></svg></div>
+      <div class="feature-title">Consistent Size</div>
+      <div class="feature-desc">Uniform 1000-number poli dana granules every single time — critical for your production line efficiency.</div>
+    </div>
+    <div class="feature-card reveal d4">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-cog"></use></svg></div>
+      <div class="feature-title">Advanced Processing</div>
+      <div class="feature-desc">Our 7-step processing pipeline with high-tech machinery ensures maximum purity and zero contamination.</div>
+    </div>
+    <div class="feature-card reveal d1">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-truck"></use></svg></div>
+      <div class="feature-title">Nationwide Delivery</div>
+      <div class="feature-desc">Reliable supply chain across all of Pakistan. Timely delivery so your factory never stops running.</div>
+    </div>
+    <div class="feature-card reveal d2">
+      <div class="feature-icon" aria-hidden="true"><svg class="ui-icon"><use href="#icon-message-circle"></use></svg></div>
+      <div class="feature-title">Direct WhatsApp Orders</div>
+      <div class="feature-desc">Order directly on WhatsApp — fast response, no middlemen, no delays. Your business partner, always on call.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROCESS ══ -->
+<section class="process-section section-wrap" id="process">
+  <div class="reveal"><div class="section-label">Our 7-Step Process</div></div>
+  <div class="reveal d1"><h2 class="section-title">From Raw Plastic<br><span style="color:var(--green)">To Premium Dana</span></h2></div>
+  <div class="reveal d2"><p class="section-desc">Every granule passes our complete quality pipeline — ensuring maximum purity and consistent results.</p></div>
+  <div class="process-steps">
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">01</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 1.png" alt="Step 1 Raw Plastic Cutting" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 1</div>
+          <div class="step-title">Raw Plastic Cutting</div>
+          <div class="step-desc">Raw plastic is manually cut into smaller pieces for better handling and preparation for machine processing.</div>
+          <div class="step-tags"><span class="step-tag">Manual Cutting</span><span class="step-tag">Size Reduction</span><span class="step-tag">Quality Check</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">02</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 2.png" alt="Step 2 Machine Crushing" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 2</div>
+          <div class="step-title">Machine Crushing</div>
+          <div class="step-desc">High-performance machines crush the raw plastic into small uniform pieces — foundation for consistent granule quality.</div>
+          <div class="step-tags"><span class="step-tag">Powerful Machines</span><span class="step-tag">Uniform Size</span><span class="step-tag">Quality Control</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">03</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 3.png" alt="Step 3 Washing" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 3</div>
+          <div class="step-title">Washing</div>
+          <div class="step-desc">Crushed plastic is thoroughly washed to remove dirt, dust, and impurities — producing clean and pure material.</div>
+          <div class="step-tags"><span class="step-tag">Thorough Washing</span><span class="step-tag">Removes Impurities</span><span class="step-tag">Clean Material</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">04</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 4.png" alt="Step 4 Drying" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 4</div>
+          <div class="step-title">Drying</div>
+          <div class="step-desc">Washed plastic is dried at high temperature to completely remove moisture — ensuring maximum purity and quality.</div>
+          <div class="step-tags"><span class="step-tag">High Temperature</span><span class="step-tag">Removes Moisture</span><span class="step-tag">Ensures Purity</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">05</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 5.png" alt="Step 5 Rinsing" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 5</div>
+          <div class="step-title">Rinsing</div>
+          <div class="step-desc">Dried plastic is thoroughly rinsed to remove any remaining residues — achieving maximum cleanliness for best results.</div>
+          <div class="step-tags"><span class="step-tag">Thorough Rinse</span><span class="step-tag">Max Cleanliness</span><span class="step-tag">Residue Free</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">06</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 6.png" alt="Step 6 Final Granulation" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 6</div>
+          <div class="step-title">Final Granulation</div>
+          <div class="step-desc">Clean plastic is granulated into small, uniform beads using advanced machines — ready for packing and reuse.</div>
+          <div class="step-tags"><span class="step-tag">Uniform Beads</span><span class="step-tag">Advanced Machines</span><span class="step-tag">Ready to Pack</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-step reveal">
+      <div class="step-number-col"><div class="step-num-text">07</div></div>
+      <div class="step-content">
+        <div class="step-img-wrap"><img src="images_plastic/step 7.png" alt="Step 7 Packed and Transported" loading="lazy"></div>
+        <div class="step-text">
+          <div class="step-label">Step 7</div>
+          <div class="step-title">Packed & Transported</div>
+          <div class="step-desc">Premium dana is carefully packed and safely transported to customers nationwide — timely delivery guaranteed.</div>
+          <div class="step-tags"><span class="step-tag">Carefully Packed</span><span class="step-tag">Timely Delivery</span><span class="step-tag">Customer First</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ ORDER ══ -->
+<section class="order-section section-wrap" id="order">
+  <div class="reveal"><div class="section-label">Place Your Order</div></div>
+  <div class="reveal d1"><h2 class="section-title">Order Directly<br><span style="color:var(--green)">via WhatsApp</span></h2></div>
+  <div class="reveal d2"><p class="section-desc" style="margin:0 auto;text-align:center;">Fill in your details below. We'll open WhatsApp with your complete order message — instant response guaranteed.</p></div>
+  <div class="order-form reveal d3">
+    <input type="text" id="order-name" placeholder="Your Full Name *" autocomplete="name">
+    <select id="order-color">
+      <option value="" disabled selected>Select Dana Color *</option>
+      <option value="Red Dana">Red Dana (1000 Number)</option>
+      <option value="Blue Dana">Blue Dana (1000 Number)</option>
+      <option value="Green Dana">Green Dana (1000 Number)</option>
+      <option value="White Dana">White Dana (1000 Number)</option>
+      <option value="Purple Dana">Purple Dana (1000 Number)</option>
+    </select>
+    <input type="text" id="order-qty" placeholder="Quantity Required (e.g. 500 kg / 2 ton)" inputmode="text">
+    <input type="text" id="order-city" placeholder="Your City / Delivery Location" autocomplete="address-level2">
+    <textarea id="order-note" placeholder="Any additional requirements (optional)"></textarea>
+    <button class="btn-order-wa" onclick="sendWAOrder()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Send Order on WhatsApp
+    </button>
+    <p class="order-note"><svg class="ui-icon" aria-hidden="true"><use href="#icon-phone"></use></svg>Call / WhatsApp directly: <a href="tel:+923095561780">+92 309 5561780</a></p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo"><img src="images_plastic/malik_brothers_logo.svg" alt="Malik Brothers Plastic Recycling Solutions"></div>
+  <div class="eco-badge"><svg class="ui-icon" aria-hidden="true"><use href="#icon-recycle"></use></svg>Eco-Friendly · Sustainable Production</div>
+  <p class="footer-tagline">Malik Brothers — Plastic Recycling Solutions<br>Premium PP Plastic Dana · Nationwide Pakistan</p>
+  <a href="https://wa.me/923095561780" class="footer-contact" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#39e75f" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    +92 309 5561780
+  </a>
+  <div class="footer-bottom">&copy; 2025 Malik Brothers Plastic Recycling Solutions · All Rights Reserved</div>
+</footer>
+
+<!-- ══ FLOATING WA ══ -->
+<a href="https://wa.me/923095561780?text=Hello%20Malik%20Brothers!%20I%20am%20interested%20in%20ordering%20Plastic%20Dana." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <div class="wa-float-ring"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// ── IMAGE LOADING OPTIMIZATION
+const imageManifest = [
+  'images_plastic/hero-desktop.png',
+  'images_plastic/hero-mobile.png',
+  'images_plastic/banner image.png',
+  'images_plastic/red dana product.png',
+  'images_plastic/blue dana product.png'
+];
+imageManifest.forEach((href, idx) => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = href;
+  if (idx > 0) link.fetchPriority = 'low';
+  document.head.appendChild(link);
+});
+document.querySelectorAll('img').forEach((img, idx) => {
+  const isLogo = img.closest('.nav-logo') || img.closest('.footer-logo');
+  img.decoding = 'async';
+  img.loading = isLogo ? 'eager' : 'lazy';
+  img.fetchPriority = idx < 2 ? 'high' : 'low';
+});
+
+// ── NAV SCROLL
+const navbar = document.getElementById('navbar');
+const waFloat = document.querySelector('.wa-float');
+function syncScrollUI() {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+  if (waFloat) {
+    waFloat.classList.toggle('visible', window.scrollY > window.innerHeight * 0.55);
+  }
+}
+window.addEventListener('scroll', syncScrollUI, {passive: true});
+window.addEventListener('load', syncScrollUI);
+syncScrollUI();
+
+// ── HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mm-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+// ── SCROLL REVEAL
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// ── WHATSAPP ORDER FORM
+function sendWAOrder() {
+  const name  = document.getElementById('order-name').value.trim();
+  const color = document.getElementById('order-color').value;
+  const qty   = document.getElementById('order-qty').value.trim();
+  const city  = document.getElementById('order-city').value.trim();
+  const note  = document.getElementById('order-note').value.trim();
+  if (!name) { alert('Please enter your name.'); document.getElementById('order-name').focus(); return; }
+  if (!color) { alert('Please select a dana color.'); document.getElementById('order-color').focus(); return; }
+  let msg = 'Hello Malik Brothers!\n\n';
+  msg += '*NEW ORDER REQUEST*\n';
+  msg += '----------------------\n';
+  msg += 'Name: ' + name + '\n';
+  msg += 'Color: ' + color + '\n';
+  if (qty)  msg += 'Quantity: ' + qty + '\n';
+  if (city) msg += 'Location: ' + city + '\n';
+  if (note) msg += 'Note: ' + note + '\n';
+  msg += '----------------------\n';
+  msg += 'Please confirm price and availability. Thank you!';
+  window.open('https://wa.me/923095561780?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+}
+</script>
+</body>
+</html>
